@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vardiya Planı</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      margin: auto;
+      margin-top: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      max-width: 600px;
+      margin: 30px auto 0;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 16px;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    #listeVeri {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div style="text-align: center; border: 2px solid black; padding: 10px;">
+  <font size="5">NİSAN</font>
+</div>
+
+<div class="card">
+  <h1 id="tarih"></h1>
+  <p><strong>Sabah:</strong> <span id="sabah"></span></p>
+  <p><strong>İkindi:</strong> <span id="ikindi"></span></p>
+  <p><strong>Gece:</strong> <span id="gece"></span></p>
+
+  <div class="buttons">
+    <button onclick="geri()">Önceki Gün</button>
+    <button onclick="ileri()">Sonraki Gün</button>
+  </div>
+</div>
+
+<h2>Vardiya Listesi</h2>
+<table id="tumListe">
+  <thead>
+    <tr>
+      <th>Tarih</th>
+      <th>Sabah</th>
+      <th>İkindi</th>
+      <th>Gece</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<!-- Vardiya Listesi Burada -->
+<textarea id="listeVeri">
+01 Nisan Salı
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+02 Nisan Çarşamba
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+03 Nisan Perşembe
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+04 Nisan Cuma
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+05 Nisan Cumartesi
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+06 Nisan Pazar
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+07 Nisan Pazartesi
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+08 Nisan Salı
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+09 Nisan Çarşamba
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+10 Nisan Perşembe
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+11 Nisan Cuma
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+12 Nisan Cumartesi
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+13 Nisan Pazar
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+14 Nisan Pazartesi
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+15 Nisan Salı
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+16 Nisan Çarşamba
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+17 Nisan Perşembe
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+18 Nisan Cuma
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+19 Nisan Cumartesi
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+20 Nisan Pazar
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+21 Nisan Pazartesi
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+22 Nisan Salı
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+23 Nisan Çarşamba
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+
+24 Nisan Perşembe
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+25 Nisan Cuma
+Sabah: Veysel
+İkindi: Şeref
+Gece: Yusuf ve Murat
+
+26 Nisan Cumartesi
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+27 Nisan Pazar
+Sabah: Emrah
+İkindi: Veysel
+Gece: Yusuf ve Şeref
+
+28 Nisan Pazartesi
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+29 Nisan Salı
+Sabah: Murat
+İkindi: Emrah
+Gece: Yusuf ve Veysel
+
+30 Nisan Çarşamba
+Sabah: Şeref
+İkindi: Murat
+Gece: Yusuf ve Emrah
+</textarea>
+
+<script>
+let vardiyalar = {};
+let currentDate = new Date();
+
+// Vardiya Listesini Yükle
+function listeyiYukle() {
+    const veri = document.getElementById("listeVeri").value.trim().split("\n");
+    for (let i = 0; i < veri.length; i++) {
+        if (veri[i].match(/^\d{2}/)) { // Tarih satırı
+            const tarihSatiri = veri[i].trim();
+            const gun = tarihSatiri.split(" ")[0];
+            const ay = "04"; // Mayıs ayı
+            const yil = "2025";
+            const tarihKey = `${yil}-${ay}-${gun}`;
+            vardiyalar[tarihKey] = {};
+            vardiyalar[tarihKey].sabah = (veri[i+1] || "").replace("Sabah: ", "").trim();
+            vardiyalar[tarihKey].ikindi = (veri[i+2] || "").replace("İkindi: ", "").trim();
+            vardiyalar[tarihKey].gece = (veri[i+3] || "").replace("Gece: ", "").trim();
+        }
+    }
+}
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+}
+
+function goster() {
+    const bugun = formatDate(currentDate);
+    document.getElementById('tarih').innerText = bugun.split("-").reverse().join(".");
+    if (vardiyalar[bugun]) {
+        document.getElementById('sabah').innerText = vardiyalar[bugun].sabah;
+        document.getElementById('ikindi').innerText = vardiyalar[bugun].ikindi;
+        document.getElementById('gece').innerText = vardiyalar[bugun].gece;
+    } else {
+        document.getElementById('sabah').innerText = "-";
+        document.getElementById('ikindi').innerText = "-";
+        document.getElementById('gece').innerText = "-";
+    }
+}
+
+function ileri() {
+    currentDate.setDate(currentDate.getDate() + 1);
+    goster();
+}
+
+function geri() {
+    currentDate.setDate(currentDate.getDate() - 1);
+    goster();
+}
+
+function listeyiTabloyaDoldur() {
+    const tbody = document.querySelector("#tumListe tbody");
+    tbody.innerHTML = "";
+    Object.keys(vardiyalar).sort().forEach(function(tarih) {
+        const gosterTarih = tarih.split("-").reverse().join(".");
+        const vardiya = vardiyalar[tarih];
+        const satir = `
+            <tr>
+                <td>${gosterTarih}</td>
+                <td>${vardiya.sabah}</td>
+                <td>${vardiya.ikindi}</td>
+                <td>${vardiya.gece}</td>
+            </tr>
+        `;
+        tbody.innerHTML += satir;
+    });
+}
+
+listeyiYukle();
+goster();
+listeyiTabloyaDoldur();
+</script>
+  <br/>
+<div align="center">
+
+<a href="https://gurpeden.github.io/vardiya/diger.html">
+
+  <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 12px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); cursor: pointer; transition: background-color 0.3s, transform 0.2s;">
+
+    Diğer Aylar
+
+  </button>
+
+</a>
+
+</div>
+</body>
+</html>
