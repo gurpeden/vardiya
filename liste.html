@@ -95,7 +95,6 @@
   <tbody></tbody>
 </table>
 
-<!-- Vardiya Listesi Burada -->
 <textarea id="listeVeri">
 01 Mayıs Perşembe
 Sabah: Şeref
@@ -257,14 +256,13 @@ Gece: Yusuf ve Veysel
 let vardiyalar = {};
 let currentDate = new Date();
 
-// Vardiya Listesini Yükle
 function listeyiYukle() {
     const veri = document.getElementById("listeVeri").value.trim().split("\n");
     for (let i = 0; i < veri.length; i++) {
-        if (veri[i].match(/^\d{2}/)) { // Tarih satırı
+        if (veri[i].match(/^\d{2}/)) {
             const tarihSatiri = veri[i].trim();
             const gun = tarihSatiri.split(" ")[0];
-            const ay = "05"; // Ay
+            const ay = "05";
             const yil = "2025";
             const tarihKey = `${yil}-${ay}-${gun}`;
             vardiyalar[tarihKey] = {};
@@ -284,7 +282,12 @@ function formatDate(date) {
 
 function goster() {
     const bugun = formatDate(currentDate);
-    document.getElementById('tarih').innerText = bugun.split("-").reverse().join(".");
+    const gunIsimleri = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+    const gun = gunIsimleri[currentDate.getDay()];
+    const tarihYazi = bugun.split("-").reverse().join(".") + " " + gun;
+
+    document.getElementById('tarih').innerText = tarihYazi;
+
     if (vardiyalar[bugun]) {
         document.getElementById('sabah').innerText = vardiyalar[bugun].sabah;
         document.getElementById('ikindi').innerText = vardiyalar[bugun].ikindi;
@@ -307,10 +310,14 @@ function geri() {
 }
 
 function listeyiTabloyaDoldur() {
+    const gunIsimleri = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
     const tbody = document.querySelector("#tumListe tbody");
     tbody.innerHTML = "";
+
     Object.keys(vardiyalar).sort().forEach(function(tarih) {
-        const gosterTarih = tarih.split("-").reverse().join(".");
+        const tarihObj = new Date(tarih);
+        const gun = gunIsimleri[tarihObj.getDay()];
+        const gosterTarih = tarih.split("-").reverse().join(".") + `<br><small>${gun}</small>`;
         const vardiya = vardiyalar[tarih];
         const satir = `
             <tr>
@@ -328,19 +335,15 @@ listeyiYukle();
 goster();
 listeyiTabloyaDoldur();
 </script>
-  <br/>
+
+<br/>
 <div align="center">
-
-<a href="https://gurpeden.github.io/vardiya/aylar.html">
-
-  <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 12px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); cursor: pointer; transition: background-color 0.3s, transform 0.2s;">
-
-    Diğer Aylar
-
-  </button>
-
-</a>
-
+  <a href="https://gurpeden.github.io/vardiya/aylar.html">
+    <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 12px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); cursor: pointer; transition: background-color 0.3s, transform 0.2s;">
+      Diğer Aylar
+    </button>
+  </a>
 </div>
+
 </body>
 </html>
