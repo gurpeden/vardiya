@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vardiya Planı</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 16px;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    .highlight {
+      background-color: rgba(0, 123, 255, 0.1);
+      font-weight: bold;
+    }
+    .highlight2 {
+      background-color: rgba(255, 0, 0, 0.1);
+      font-weight: bold;
+    }
+    .highlight3 {
+      background-color: rgba(255, 255, 0, 0.4);
+      font-weight: bold;
+    }
+    #listeVeri {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Ekim 2025</h2>
+<table id="tumListe">
+  <thead>
+    <tr>
+      <th>Tarih</th>
+      <th>Gece 00.00 08.00</th>
+      <th>Sabah 08.00 16.00</th>
+      <th>İkindi 16.00 00.00</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<textarea id="listeVeri">
+01 Ekim Çarşamba
+Gece: Yusuf Emrah
+Sabah: Veysel
+İkindi: Şeref
+
+02 Ekim Perşembe
+Gece: Yusuf Murat
+Sabah: Veysel
+İkindi: Şeref
+
+03 Ekim Cuma
+Gece: Şeref Murat
+Sabah: Emrah
+İkindi: Veysel
+
+04 Ekim Cumartesi
+Gece: Yusuf Şeref
+Sabah: Emrah
+İkindi: Veysel
+
+05 Ekim Pazar
+Gece: Yusuf Şeref
+Sabah: Murat
+İkindi: E̶m̶r̶a̶h̶ Yusuf
+
+06 Ekim Pazartesi
+Gece: Yusuf Veysel
+Sabah: Murat
+İkindi: Emrah
+
+07 Ekim Salı
+Gece: Y̶u̶s̶u̶f̶ Emrah Veysel
+Sabah: Şeref
+İkindi: Murat
+
+08 Ekim Çarşamba
+Gece: Yusuf Emrah
+Sabah: Şeref
+İkindi: Murat
+
+09 Ekim Perşembe
+Gece: Murat Emrah
+Sabah: Veysel
+İkindi: Şeref
+
+10 Ekim Cuma
+Gece: Yusuf Murat
+Sabah: Veysel
+İkindi: Şeref
+
+11 Ekim Cumartesi
+Gece: Yusuf Murat
+Sabah: Emrah
+İkindi: Veysel
+
+12 Ekim Pazar
+Gece: Yusuf Şeref
+Sabah: Emrah
+İkindi: Veysel
+
+13 Ekim Pazartesi
+Gece: Yusuf Şeref
+Sabah: Murat
+İkindi: Emrah
+
+14 Ekim Salı
+Gece: Yusuf Veysel
+Sabah: Murat
+İkindi: Emrah
+
+15 Ekim Çarşamba
+Gece: Emrah Veysel
+Sabah: Şeref
+İkindi: Murat
+
+16 Ekim Perşembe
+Gece: Yusuf Emrah
+Sabah: Salim
+İkindi: Şeref
+
+17 Ekim Cuma
+Gece: Yusuf Emrah
+Sabah: Salim
+İkindi: Veysel
+
+18 Ekim Cumartesi
+Gece: Yusuf Şeref
+Sabah: Emrah
+İkindi: Veysel
+
+19 Ekim Pazar
+Gece: Yusuf Şeref
+Sabah: Salim
+İkindi: Emrah
+
+20 Ekim Pazartesi
+Gece: Yusuf Veysel
+Sabah: Şeref
+İkindi: Emrah 
+
+21 Ekim Salı
+Gece: Yusuf Veysel
+Sabah: Salim
+İkindi: Şeref
+
+22 Ekim Çarşamba
+Gece: Yusuf Emrah
+Sabah: Veysel
+İkindi: Şeref
+
+23 Ekim Perşembe
+Gece: Yusuf Murat
+Sabah: Veysel
+İkindi: Şeref
+
+24 Ekim Cuma
+Gece: Yusuf Murat
+Sabah: Emrah
+İkindi: Veysel
+
+25 Ekim Cumartesi
+Gece: Yusuf Şeref
+Sabah: Emrah
+İkindi: Veysel
+
+26 Ekim Pazar
+Gece: Veysel Şeref
+Sabah: Murat
+İkindi: Emrah
+
+27 Ekim Pazartesi
+Gece: Yusuf Veysel
+Sabah: Murat
+İkindi: Emrah
+
+28 Ekim Salı
+Gece: Yusuf Veysel
+Sabah: Şeref
+İkindi: Murat
+
+29 Ekim Çarşamba
+Gece: Yusuf Emrah
+Sabah: Şeref
+İkindi: Murat
+
+30 Ekim Perşembe
+Gece: Yusuf Emrah
+Sabah: Veysel
+İkindi: Şeref
+
+31 Ekim Cuma
+Gece: Yusuf Murat
+Sabah: Veysel
+İkindi: Şeref
+</textarea>
+
+<script>
+let vardiyalar = {};
+
+let highlightDates = [
+  "2025-10-03",
+  "2025-10-09",
+  "2025-10-15",
+  "2025-10-26"
+];
+
+let highlightDates2 = [
+  "2025-10-16",
+  "2025-10-17",
+  "2025-10-18",
+  "2025-10-19",
+  "2025-10-20",
+  "2025-10-21",
+  "2025-10-22"
+];
+
+let highlightCells = [
+  { date: "2025-10-05", shift: "ikindi" },
+  { date: "2025-10-07", shift: "gece" },
+  { date: "2025-11-21", shift: "sabah" }
+];
+
+function listeyiYukle() {
+    const veri = document.getElementById("listeVeri").value.trim().split("\n");
+    for (let i = 0; i < veri.length; i++) {
+        if (veri[i].match(/^\d{2}/)) {
+            const gun = veri[i].trim().split(" ")[0];
+            const ay = "10";
+            const yil = "2025";
+            const tarihKey = `${yil}-${ay}-${gun}`;
+            vardiyalar[tarihKey] = {
+                gece: (veri[i+1] || "").replace("Gece: ", "").trim(),
+                sabah: (veri[i+2] || "").replace("Sabah: ", "").trim(),
+                ikindi: (veri[i+3] || "").replace("İkindi: ", "").trim()
+            };
+        }
+    }
+}
+
+function formatDateReadable(date) {
+  return date.toLocaleDateString("tr-TR", {
+    day: "2-digit", month: "2-digit", year: "numeric"
+  });
+}
+
+function listeyiTabloyaDoldur() {
+    const gunIsimleri = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+    const tbody = document.querySelector("#tumListe tbody");
+    tbody.innerHTML = "";
+
+    let satirlar = "";
+    Object.keys(vardiyalar).sort().forEach(function(tarih) {
+        const tarihObj = new Date(tarih);
+        const gun = gunIsimleri[tarihObj.getDay()];
+        const gosterTarih = formatDateReadable(tarihObj) + `<br><small>${gun}</small>`;
+        const vardiya = vardiyalar[tarih];
+
+        let highlightClass = "";
+        if (highlightDates.includes(tarih)) {
+          highlightClass = "highlight";
+        } else if (highlightDates2.includes(tarih)) {
+          highlightClass = "highlight2";
+        }
+        
+        const geceClass = highlightCells.some(h => h.date === tarih && h.shift === "gece") ? "highlight3" : "";
+        const sabahClass = highlightCells.some(h => h.date === tarih && h.shift === "sabah") ? "highlight3" : "";
+        const ikindiClass = highlightCells.some(h => h.date === tarih && h.shift === "ikindi") ? "highlight3" : "";
+
+        satirlar += `
+            <tr class="${highlightClass}">
+                <td>${gosterTarih}</td>
+                <td class="${geceClass}">${vardiya.gece}</td>
+                <td class="${sabahClass}">${vardiya.sabah}</td>
+                <td class="${ikindiClass}">${vardiya.ikindi}</td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = satirlar;
+}
+
+listeyiYukle();
+listeyiTabloyaDoldur();
+</script>
+
+</body>
+</html>
