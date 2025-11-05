@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birden Fazla Gösterişli Buton</title>
+<style>
+  body {
+    background: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .btn {
+    background: linear-gradient(135deg, #4e9af1, #0059ff);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 120, 255, 0.6);
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<button class="btn" data-url="https://gurpeden.github.io/vardiya/ekim2025.html">Ekim 2025<div class="spinner"></div></button>
+<button class="btn" data-url="https://gurpeden.github.io/vardiya/kasim2025.html">Kasım 2025<div class="spinner"></div></button>
+<button class="btn" data-url="#">Aralık 2025<div class="spinner"></div></button>
+<button class="btn" data-url="#">Ocak 2025<div class="spinner"></div></button>
+
+<script>
+  const buttons = document.querySelectorAll('.btn');
+
+  buttons.forEach(btn => {
+    const spinner = btn.querySelector('.spinner');
+    const originalHTML = btn.innerHTML;
+
+    // Sayfa geri gelince butonları sıfırla
+    window.addEventListener('pageshow', () => {
+      btn.disabled = false;
+      spinner.style.display = 'none';
+      btn.innerHTML = originalHTML;
+    });
+
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      btn.textContent = '';
+      spinner.style.display = 'inline-block';
+      btn.appendChild(spinner);
+
+      const url = btn.getAttribute('data-url');
+
+      // 2 saniye sonra yönlendir
+      setTimeout(() => {
+        window.location.href = url;
+      }, 2000);
+
+      // 3 saniye sonra eski haline döndür (geri gelince düzgün gözüksün)
+      setTimeout(() => {
+        btn.disabled = false;
+        spinner.style.display = 'none';
+        btn.innerHTML = originalHTML;
+      }, 3000);
+    });
+  });
+</script>
+
+</body>
+</html>
