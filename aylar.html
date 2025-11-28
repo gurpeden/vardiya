@@ -86,14 +86,14 @@
       // 2 saniye sonra yönlendir
       setTimeout(() => {
         window.location.href = url;
-      }, 2000);
+      }, 1000);
 
       // 3 saniye sonra eski haline döndür (geri gelince düzgün gözüksün)
       setTimeout(() => {
         btn.disabled = false;
         spinner.style.display = 'none';
         btn.innerHTML = originalHTML;
-      }, 3000);
+      }, 2000);
     });
   });
 </script>
